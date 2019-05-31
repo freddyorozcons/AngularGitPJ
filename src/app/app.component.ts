@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'AngularGitPJ';
+  myAge : number;
+
+  ngOnInit(){
+    this.myAge = 23;
+  }
 }
