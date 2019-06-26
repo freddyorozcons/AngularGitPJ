@@ -1,0 +1,11 @@
+@import '../../../assets/global-vars/import-variables';
+
+.card-body {
+    display: flex;
+    flex: 1;
+    padding: .5rem;
+    margin: .5rem;
+    text-align: center;
+    background-color: $clr-secondary;
+    border-radius: 5px;
+}
