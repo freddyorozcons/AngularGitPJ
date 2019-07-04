@@ -6,10 +6,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  title = 'AngularGitPJ';
-  myAge : number;
 
-  ngOnInit(){
-    this.myAge = 23;
+  mcuQuotes = [
+    {
+      author: 'Thanos',
+      phrase: "You could not live with your own failure. And where did that bring you? Back to me."
+    },
+    {
+      author: 'Stan Lee',
+      phrase: "Excelsior"
+    },
+  ];
+
+  ngOnInit() {
+
+  }
+
+  receiveMessage($event: any) {
+    console.log("Home receives" + $event);
   }
 }

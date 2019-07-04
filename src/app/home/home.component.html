@@ -1,17 +1,19 @@
 <app-nav-bar></app-nav-bar>
 
-<h3>My age is: {{myAge}}</h3>
-<p>I am the test</p>
-
 <app-card-holder>
-    <app-card-phrase [phraseAutor]="'Thanos'">
+    <app-card-phrase [phraseAutor]=[mcuQuotes[0].author] [quotePhrase]=[mcuQuotes[0].phrase]>
         <!-- 
             "Thanos" -> Won't work
             'Thanos' -> Won't work
+            [Thanos] -> Won't work
+            "'Thanos'" -> Works!
+            [mcuQuotes[1].author] -> Works!
         -->
     </app-card-phrase>
 </app-card-holder>
 <app-card-holder>
     <app-card-prompt></app-card-prompt>
-    <app-card-phrase [phraseAutor]="'Gamora'"></app-card-phrase>
+    <app-card-phrase [phraseAutor]=[mcuQuotes[1].author] [quotePhrase]=[mcuQuotes[1].phrase]
+        (acceptSendMsg)="receiveMessage($event)"
+        (denySendMsg)="receiveMessage($event)"></app-card-phrase>
 </app-card-holder>

@@ -2,9 +2,14 @@
   <span>
     {{promptTextToShow}}
   </span>
-  <button>
+  <button (click)="acceptBtn()">
     <span>
-      Ok
+      Accept
+    </span>
+  </button>
+  <button (click)="denyBtn()">
+    <span>
+      Deny
     </span>
   </button>
 </div>
