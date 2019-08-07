@@ -1,0 +1,10 @@
+@import "../../../assets/global-vars/import-variables";
+
+.game-container {
+    width: 80%;
+    max-width: 100rem;
+    min-width: 1rem;
+    background-color: $clr-main;
+    height: auto;
+    padding: 0.5rem;
+}

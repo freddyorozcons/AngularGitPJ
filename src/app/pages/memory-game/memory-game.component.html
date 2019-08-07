@@ -1,0 +1,7 @@
+<div class="game-container">
+  <app-main-game-holder [useStatusBar]=true>
+    <ng-container *ngFor="let card of levelCards; let i = index">
+      <app-card [cardContent]=[levelCards[i].item]></app-card>
+    </ng-container>
+  </app-main-game-holder>
+</div>

@@ -18,6 +18,8 @@ export class HomeComponent implements OnInit {
     },
   ];
 
+  myVar: string;
+
   ngOnInit() {
 
   }

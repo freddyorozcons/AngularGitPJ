@@ -3,20 +3,21 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { CardHolderComponent } from './cards/card-holder/card-holder.component';
-import { CardPhraseComponent } from './cards/card-phrase/card-phrase.component';
-import { CardPromptComponent } from './cards/card-prompt/card-prompt.component';
+import { HomeComponent } from './pages/home/home.component';
+import { CardComponent } from './components/card/card.component';
+import { StatusBarComponent } from './components/status-bar/status-bar.component';
+import { MemoryGameComponent } from './pages/memory-game/memory-game.component';
+import { MainGameHolderComponent } from './components/main-game-holder/main-game-holder.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    NavBarComponent,
-    CardHolderComponent,
-    CardPhraseComponent,
-    CardPromptComponent
+    CardComponent,
+    StatusBarComponent,
+    MemoryGameComponent,
+    MainGameHolderComponent
   ],
   imports: [
     BrowserModule,

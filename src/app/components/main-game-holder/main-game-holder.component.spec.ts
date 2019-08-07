@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CardPhraseComponent } from './card-phrase.component';
+import { MainGameHolderComponent } from './main-game-holder.component';
 
-describe('CardPhraseComponent', () => {
-  let component: CardPhraseComponent;
-  let fixture: ComponentFixture<CardPhraseComponent>;
+describe('MainGameHolderComponent', () => {
+  let component: MainGameHolderComponent;
+  let fixture: ComponentFixture<MainGameHolderComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CardPhraseComponent ]
+      declarations: [ MainGameHolderComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CardPhraseComponent);
+    fixture = TestBed.createComponent(MainGameHolderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
