@@ -1,3 +1,14 @@
-<p>
-{{cardContent}}
-</p>
+<div class="card"
+[class.show]="showCard"
+(click)="clickCard(this)">
+    <ng-container *ngIf="cardTitle">
+        <div class="card__header">
+            Titular
+        </div>
+    </ng-container>
+    <div class="card__body">
+        <span class="card__body__text">
+            {{cardContent}}
+        </span>
+    </div>
+</div>

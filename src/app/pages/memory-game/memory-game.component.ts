@@ -21,8 +21,24 @@ export class MemoryGameComponent implements OnInit {
   }
 
   loadLevel(level) {
-    this.levelCards = data.GameInfo[level].cards
-    console.log(this.levelCards[0]);
+    let doubleLength = data.GameInfo[level].cards.length * 2;
+    let forCtrl = 0;
+
+    for (let i = 0; i < doubleLength; i++) {
+      if (forCtrl < doubleLength / 2) {
+        this.levelCards.push(data.GameInfo[level].cards[forCtrl].item);
+        forCtrl++;
+      } else {
+        forCtrl = 0;
+        this.levelCards.push(data.GameInfo[level].cards[forCtrl].item);
+        forCtrl++;
+      }
+    }
+    this.shuffle(this.levelCards);
+  }
+
+  shuffle(array): void {
+    array.sort(() => Math.random() - 0.5);
   }
 
 }
