@@ -12,7 +12,6 @@ export class MemoryGameComponent implements OnInit {
   levelCards = [];
 
   constructor() {
-    console.log(data.GameInfo[0].cards);
     this.loadLevel(0);
   }
 
