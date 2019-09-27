@@ -1,0 +1,9 @@
+<div class="memory-game">
+  <app-main-game-holder [useStatusBar]=true>
+    <div class="memory-game__container">
+      <ng-container *ngFor="let card of levelCards; let i = index">
+        <app-card [cardContent]=[levelCards[i]]></app-card>
+      </ng-container>
+    </div>
+  </app-main-game-holder>
+</div>

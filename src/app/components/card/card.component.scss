@@ -1,0 +1,39 @@
+@import "../../../assets/global-vars/import-variables";
+
+// Card component
+//
+
+.card {
+	display: flex;
+	padding: 0.5rem;
+	background-color: $clr-secondary;
+	border-radius: 5px;
+	margin: 0.5rem;
+	transform: rotateY(0deg);
+	transition: all 0.3s ease-in-out;
+	display: block;
+
+	&.show {
+		transform: rotateY(180deg);
+	}
+}
+
+.card__body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-grow: 1;
+}
+
+.card__body__text {
+	opacity: 0;
+	transform: rotateY(180deg);
+	transition: all 0.3s ease-in-out;
+}
+
+.show {
+
+	.card__body__text {
+		opacity: 1;
+	}
+}
