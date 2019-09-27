@@ -24,20 +24,20 @@ export class CardComponent implements OnInit {
 
   clickCard(element): void {
     if (!this.showCard) {
-      this.mgs.setActualValue(this.cardContent);
-      this.mgs.increaseCardCtrl();
-      this.mgs.addClickedElement(element);
+      //Show Card
+      this.mgs.setActualValue(this.cardContent, element);
     } else {
-      this.mgs.setActualValue('');
-      this.mgs.decreaseCardCtrl();
+      //Hide card
+      this.mgs.setActualValue('', element);
     }
+
     this.showCard = !this.showCard;
-
-
-    console.log(this.mgs);
+    //console.log(this.mgs);
   }
 
   closeCard(): void {
+    console.log("somebody close me");
+
     this.showCard = false;
   }
 
