@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import data from '../../../assets/game-levels/memory-game/memory.levels.json';
+import { MemoryGameService } from 'src/app/services/memory-game.service.js';
 
 @Component({
   selector: 'app-memory-game',
@@ -8,36 +9,17 @@ import data from '../../../assets/game-levels/memory-game/memory.levels.json';
 })
 export class MemoryGameComponent implements OnInit {
 
-  level: number = 0;
   levelCards = [];
 
-  constructor() {
-    this.loadLevel(0);
+  constructor(public mgs: MemoryGameService) {
   }
 
   ngOnInit() {
-
+    this.levelCards = this.mgs.loadLevel(0);
   }
 
-  loadLevel(level) {
-    let doubleLength = data.GameInfo[level].cards.length * 2;
-    let forCtrl = 0;
-
-    for (let i = 0; i < doubleLength; i++) {
-      if (forCtrl < doubleLength / 2) {
-        this.levelCards.push(data.GameInfo[level].cards[forCtrl].item);
-        forCtrl++;
-      } else {
-        forCtrl = 0;
-        this.levelCards.push(data.GameInfo[level].cards[forCtrl].item);
-        forCtrl++;
-      }
-    }
-    this.shuffle(this.levelCards);
-  }
-
-  shuffle(array): void {
-    array.sort(() => Math.random() - 0.5);
+  public loadNewLevel() {
+    console.log("Load new level");
   }
 
 }

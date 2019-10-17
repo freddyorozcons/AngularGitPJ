@@ -11,7 +11,7 @@ export class CardComponent implements OnInit {
   @Input() cardContent: string;
   @Input() cardTitle: string;
   public showCard: boolean = false;
-  private isActive: boolean;
+  public isActive: boolean;
 
   @Output() cardContentMsg = new EventEmitter<string>();
 
@@ -23,25 +23,18 @@ export class CardComponent implements OnInit {
   }
 
   clickCard(element): void {
-    if (!this.showCard) {
-      //Show Card
-      this.mgs.setActualValue(this.cardContent, element);
-    } else {
-      //Hide card
-      this.mgs.setActualValue('', element);
-    }
-
-    this.showCard = !this.showCard;
-    //console.log(this.mgs);
+    this.mgs.setActualValue(element);
   }
 
   closeCard(): void {
-    console.log("somebody close me");
-
     this.showCard = false;
   }
 
   disableCard(): void {
     this.isActive = false;
+  }
+
+  showHideCard(): void {
+    this.showCard = !this.showCard;
   }
 }
