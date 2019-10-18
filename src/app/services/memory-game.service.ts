@@ -11,15 +11,23 @@ export class MemoryGameService {
   private _slot2: CardComponent;
   private _clickControl: boolean;
   private levelCards = [];
+  private _counterToEndGame: number;
+  private _counterActual: number;
+  private _actualLevel: number;
 
   constructor() {
     this._slot1 = null;
     this._slot2 = null;
     this._clickControl = true;
+    this._counterToEndGame = 0;
+    this._counterActual = 0;
+    this._actualLevel = 0;
   }
 
   public loadLevel(level) {
-    let doubleLength = data.GameInfo[level].cards.length * 2;
+    this._counterActual = 0;
+    this._counterToEndGame = data.GameInfo[level].cards.length;
+    let doubleLength = this._counterToEndGame * 2;
     let forCtrl = 0;
 
     for (let i = 0; i < doubleLength; i++) {
@@ -48,8 +56,8 @@ export class MemoryGameService {
           this._slot1 = clickedCard;
           this._slot1.showHideCard();
         } else if (this._slot1 == clickedCard) {
-          this._slot1 = null;
           this._slot1.showHideCard();
+          this._slot1 = null;
         } else if (this._slot1 != clickedCard) {
           this._slot2 = clickedCard;
           this._slot2.showHideCard();
@@ -57,6 +65,7 @@ export class MemoryGameService {
         }
       }
     }
+  
   }
 
   private validateCards(): void {
@@ -65,6 +74,8 @@ export class MemoryGameService {
       this._slot2.disableCard();
       this._slot1 = null;
       this._slot2 = null;
+      this._counterActual++;
+      this.checkIfFinishGame();
     } else {
       this._clickControl = false;
       setTimeout(() => {
@@ -77,7 +88,10 @@ export class MemoryGameService {
     }
   }
 
-  private finishGame(): void {
-    console.log("Finished");
+  private checkIfFinishGame(): void {
+  console.log(this._counterToEndGame);
+    if (this._counterToEndGame == this._counterActual) {
+      this.loadLevel(this._actualLevel += 1);
+    }
   }
 }

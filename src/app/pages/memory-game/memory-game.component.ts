@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import data from '../../../assets/game-levels/memory-game/memory.levels.json';
 import { MemoryGameService } from 'src/app/services/memory-game.service.js';
 
@@ -7,7 +7,8 @@ import { MemoryGameService } from 'src/app/services/memory-game.service.js';
   templateUrl: './memory-game.component.html',
   styleUrls: ['./memory-game.component.scss']
 })
-export class MemoryGameComponent implements OnInit {
+export class MemoryGameComponent implements OnInit, AfterViewInit {
+
 
   levelCards = [];
 
@@ -15,7 +16,11 @@ export class MemoryGameComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.levelCards = this.mgs.loadLevel(0);
+    this.levelCards = this.mgs.loadLevel(1);
+  }
+
+  ngAfterViewInit(): void {
+
   }
 
   public loadNewLevel() {
